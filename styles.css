@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #172d2b;
+  background: #f4f6f0;
+  line-height: 1.5;
+}
+* { box-sizing: border-box; }
+main { max-width: 72rem; margin: auto; padding: clamp(1rem, 4vw, 3rem); }
+header { padding: clamp(1rem, 4vw, 3rem); background: #123b34; color: #fff; border-radius: 1rem; }
+.course { margin: 0; color: #d0e2cc; }
+h1 { margin: .2em 0 .65em; font: 700 clamp(2rem, 6vw, 4rem)/1.05 Georgia, serif; }
+nav { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+a { color: inherit; text-underline-offset: .2em; }
+section { margin-top: 2.5rem; }
+h2 { margin-bottom: .25rem; font-family: Georgia, serif; }
+section > p { margin-top: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); gap: 1rem; }
+.card { min-width: 0; padding: clamp(.65rem, 2vw, 1.25rem); background: #fff; border: 1px solid #d4ded3; border-radius: .75rem; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; }
+caption { text-align: left; font-size: 1.05rem; font-weight: 700; padding-bottom: .65rem; }
+th, td { padding: .4rem .18rem; border-bottom: 1px solid #e1e9df; text-align: right; }
+thead th { vertical-align: bottom; }
+th:first-child { width: 37%; text-align: left; }
+tbody th { font-weight: 500; }
+thead, .summary { background: #e7efe1; }
+.summary { padding: .8rem 1rem; border-radius: .5rem; }
+#warning, #status.error { color: #8d2525; }
