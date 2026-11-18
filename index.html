@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b34">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <title>AGE Capital Structure</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./capstruct.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="course">FIN 4150 · Managerial Finance II</p>
+      <h1>AGE Capital Structure</h1>
+      <nav aria-label="Page sections">
+        <a href="#firms">Firm U and Firm L</a>
+        <a href="#cdss">Campus Deli and Sub Shop</a>
+      </nav>
+    </header>
+    <p id="status" role="status">Loading case data…</p>
+    <div id="results" hidden>
+      <section id="firms" aria-labelledby="firms-title">
+        <h2 id="firms-title">Firm U and Firm L</h2>
+        <p>Question c compares scenario income statements, return on equity (ROE), and times interest earned (TIE). TIE is unavailable when interest is zero.</p>
+        <div class="controls">
+          <label for="firm-debt">Firm L’s debt</label>
+          <output id="firm-debt-value" for="firm-debt"></output>
+          <input id="firm-debt" type="range" min="0" step="any">
+          <button id="case-debt" type="button">Case</button>
+          <p id="firm-rate"></p>
+        </div>
+        <div id="firm-comparison"></div>
+        <div id="firm-tables" class="grid"></div>
+      </section>
+      <section id="cdss" aria-labelledby="cdss-title">
+        <h2 id="cdss-title">Campus Deli and Sub Shop</h2>
+        <p>Compare earnings per share (EPS), share price, and weighted average cost of capital (WACC) at each amount in the banker’s schedule.</p>
+        <p id="warning" role="alert" hidden></p>
+        <p id="extrema" class="summary"></p>
+        <div class="controls">
+          <label for="cdss-debt">CDSS’s debt</label>
+          <output id="cdss-debt-value" for="cdss-debt"></output>
+          <input id="cdss-debt" type="range" min="0" step="1">
+          <button id="best-price" type="button">Best Price</button>
+          <button id="highest-eps" type="button">Highest EPS</button>
+          <p id="cdss-action-note" role="status" hidden></p>
+        </div>
+        <div id="selected-debt"></div>
+        <details>
+          <summary>Show every amount in the banker’s schedule</summary>
+          <div id="debt-tables" class="grid"></div>
+        </details>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
