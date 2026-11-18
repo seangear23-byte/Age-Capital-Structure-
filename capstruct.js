@@ -25,7 +25,8 @@ function exampleFirm(assets, debt, rate, tax, scenarios) {
 
 function cdssResults(company, tax, schedule) {
   const { sales, variable_cost_rate, fixed_costs, total_assets: assets,
-    shares_outstanding: originalShares, share_price: originalPrice } = company;
+    shares_outstanding: originalShares, share_price: originalPrice,
+    management_share: managementShare } = company;
   const ebit = sales * (1 - variable_cost_rate) - fixed_costs;
 
   return schedule.map(({ debt, cost_of_debt: debtRate, cost_of_equity: equityRate }) => {
@@ -38,8 +39,14 @@ function cdssResults(company, tax, schedule) {
     function buyback(purchasePrice, equityWeight, debtWeight) {
       const repurchased = debt / purchasePrice;
       const remaining = originalShares - repurchased;
+      const managedShares = managementShare * originalShares;
+      const outsideShares = originalShares - managedShares;
+      const outsideRemaining = outsideShares - repurchased;
+      const eps = income / remaining;
       return {
-        repurchased, remaining, eps: income / remaining,
+        repurchased, remaining, eps, dps: eps,
+        managementOwnership: outsideRemaining < -1e-8 ? null : Math.min(1, managedShares / remaining),
+        allOutsideSharesRepurchased: Math.abs(outsideRemaining) <= 1e-8,
         wacc: debtWeight * (debtRate ?? 0) * (1 - tax) + equityWeight * equityRate
       };
     }

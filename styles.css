@@ -26,3 +26,31 @@ tbody th { font-weight: 500; }
 thead, .summary { background: #e7efe1; }
 .summary { padding: .8rem 1rem; border-radius: .5rem; }
 #warning, #status.error { color: #8d2525; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem .85rem;
+  margin: 1rem 0;
+  padding: .85rem 1rem;
+  border-radius: .75rem;
+  background: #e7efe1;
+}
+.controls label,
+.controls output { font-weight: 700; }
+.controls output { margin-inline-start: auto; font-variant-numeric: tabular-nums; }
+.controls input { flex: 0 0 100%; width: 100%; accent-color: #123b34; }
+.controls p { flex: 0 0 100%; margin: 0; font-size: .875rem; }
+button {
+  font: inherit;
+  padding: .4rem .8rem;
+  border: 1px solid #123b34;
+  border-radius: .4rem;
+  color: #fff;
+  background: #123b34;
+  cursor: pointer;
+}
+button:hover { background: #25574e; }
+#firm-comparison, #selected-debt { margin-bottom: 1rem; }
+summary { cursor: pointer; margin-bottom: .75rem; }
